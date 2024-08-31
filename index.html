@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KREO - The King of Keyboards</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #1e1e1e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('cyberpunk-background.jpg');
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            position: relative;
+            z-index: 2;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff4081;
+            border: none;
+            color: white;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .features, .reviews, .specifications {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .features h3, .reviews h3, .specifications h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .features ul, .specifications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .reviews {
+            background-color: #1e1e1e;
+            padding: 40px 20px;
+        }
+
+        .review {
+            display: none;
+        }
+
+        .review.active {
+            display: block;
+        }
+
+        .review img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .stars {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>KREO</h1>
+    <div class="nav-icons">
+        <div>View Cart</div>
+        <div>User Profile</div>
+    </div>
+</header>
+
+<section class="hero">
+    <video autoplay muted loop>
+        <source src="keyboard-smash.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <h2>Throw Away Your Old Keyboard</h2>
+    <p>Check Out the King of Keyboards</p>
+    <button onclick="window.location.href='#features'">Know More</button>
+</section>
+
+<section id="features" class="features">
+    <h3>Kreo Swarm Key Features</h3>
+    <ul>
+        <li>Hot-swappable switches for customizable typing experience</li>
+        <li>RGB backlighting with customizable effects</li>
+        <li>Durable build quality with a sleek design</li>
+        <li>Compatible with various switch types</li>
+        <li>Ergonomic layout for comfortable use</li>
+    </ul>
+</section>
+
+<section id="reviews" class="reviews">
+    <h3>Customer Reviews</h3>
+    <div class="review active">
+        <img src="profile1.jpg" alt="User 1">
+        <div class="stars">★★★★★</div>
+        <p><strong>John D.</strong>: "Best keyboard I've ever used! The hot-swappable feature is a game changer."</p>
+    </div>
+    <div class="review">
+        <img src="profile2.jpg" alt="User 2">
+        <div class="stars">★★★★★</div>
+        <p><strong>Jane S.</strong>: "The RGB lighting is stunning and the typing feel is unmatched!"</p>
+    </div>
+    <div class="review">
+        <img src="profile3.jpg" alt="User 3">
+        <div class="stars">★★★★★</div>
+        <p><strong>Mike T.</strong>: "I love how customizable this keyboard is. Highly recommend!"</p>
+    </div>
+</section>
+
+<section id="specifications" class="specifications">
+    <h3>Product Specifications</h3>
+    <ul>
+        <li>Dimensions: 15.75 x 5.51 x 1.57 inches</li>
+        <li>Weight: 2.5 lbs</li>
+        <li>Switch Type: Various (Hot-swappable)</li>
+        <li>Connectivity: USB-C / Wireless</li>
+        <li>Battery Life: Up to 200 hours with RGB off</li>
+    </ul>
+</section>
+
+<script>
+    const reviews = document.querySelectorAll('.review');
+    let currentReview = 0;
+
+    setInterval(() => {
+        reviews[currentReview].classList.remove('active');
+        currentReview = (currentReview + 1) % reviews.length;
+        reviews[currentReview].classList.add('active');
+    }, 10000);
+</script>
+
+</body>
+</html>
